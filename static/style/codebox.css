@@ -31,9 +31,16 @@ textarea {
     background: #FD971F;
 }
 
+.tree{
+    overflow-y: auto;
+    width: 200px;
+}
+
 .top {
     display: flex;
     flex: 1 1 87%;
+    align-content: stretch;
+    overflow-y: auto;
     background: #272822;
     /*justify-content: space-between;*/
 }
@@ -42,7 +49,7 @@ textarea {
     background: #272822;
 }
 
-.CodeMirror {
+.CodeMirror { 
   border: 0px solid #eee;
   height: 150%;
   viewportMargin: Infinity;
