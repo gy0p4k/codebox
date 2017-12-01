@@ -1,0 +1,49 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+html, body {
+    height: 100%;
+}
+body {
+    display: flex;
+    flex-direction: column;
+}
+textarea {
+    overflow: hidden;
+}
+
+.panel {
+    background: lime;
+}
+
+.level {
+    background-color: black;
+}
+
+.level:hover {
+    background-color: white;
+    color: black;
+}
+
+.handle {
+    flex: 1 1 1%;
+    background: #FD971F;
+}
+
+.top {
+    display: flex;
+    flex: 1 1 87%;
+    background: #272822;
+    /*justify-content: space-between;*/
+}
+.bottom {
+    flex: 1 1 12%;
+    background: #272822;
+}
+
+.CodeMirror {
+  border: 0px solid #eee;
+  height: 150%;
+  viewportMargin: Infinity;
+}

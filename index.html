@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>codebox</title>
+    <link rel="stylesheet" type="text/css" href="style/codebox.css">
+    <link rel="stylesheet" href="http://codemirror.net/lib/codemirror.css">
+    <link rel="stylesheet" href="http://codemirror.net/theme/monokai.css">
+
+    <link rel="stylesheet" href="node_modules/xterm/dist/xterm.css" />
+
+
+</head>
+
+<body onresize="resize()">
+    <div class="top panel">
+        
+        <div class="tree terminal">
+        </div>
+
+
+        <textarea rows="4" cols="50" class="code" id="code">
+let drag = document.querySelector('.handle');
+let topPanel = document.querySelector('.top');
+let bottomPanel = document.querySelector('.bottom');
+let isDragging = false;
+let dragStart = {};
+
+drag.addEventListener('mousedown', function(e){
+    isDragging = true;
+    dragStart.y = e.clientY;
+})
+
+document.addEventListener('mouseup', function(e){
+    isDragging = false;
+    dragStart.y = e.clientY;
+})
+
+document.addEventListener('mousemove', function(e){
+    if( isDragging ) {
+        let topPercent = e.clientY / window.innerHeight * 100;
+        let bottomPercent = (100 - topPercent) - 1;
+        topPanel.style.flex = '1 1 ' + topPercent + '%';
+        bottomPanel.style.flex = '1 1 ' + bottomPercent + '%';
+    }
+})
+        </textarea>  
+ 
+    </div>
+
+    <div class="handle"></div>
+    
+    <div class="bottom panel terminal">
+         
+        <p>gy0p4k@gf:~/dev/codebox$</p>
+        <p>gy0p4k@gf:~/dev/codebox$ szia</p>                        
+    </div>
+
+<script src="node_modules/xterm/dist/xterm.js"></script>
+
+
+<script src="http://codemirror.net/lib/codemirror.js"></script>
+<script src="http://codemirror.net/addon/edit/matchbrackets.js"></script>
+<script src="http://codemirror.net/addon/display/fullscreen.js"></script>
+<script src="http://codemirror.net/mode/javascript/javascript.js"></script>
+
+
+<script src="src/panel-control.js"></script>
+<script src="src/tree.js"></script>
+<script src="src/editor.js"></script>
+
+</body>
+
+
+</html>
