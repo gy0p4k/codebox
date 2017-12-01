@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "express": "^4.16.2",
     "xterm": "^2.9.2"
   }
 }
