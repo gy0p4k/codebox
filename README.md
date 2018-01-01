@@ -1,2 +1,3 @@
 # codebox
-server-based code editor
+frontend code editor platform
+![ ](http://url/to/img.png)
