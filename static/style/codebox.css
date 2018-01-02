@@ -52,5 +52,10 @@ textarea {
 .CodeMirror { 
   border: 0px solid #eee;
   height: 150%;
+  width: 80%;
+  margin: 0;
+  padding: 0;
+  top: 0;
+  left: 0;
   viewportMargin: Infinity;
 }
