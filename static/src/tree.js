@@ -3,6 +3,7 @@
 let treePanel = document.querySelector(".tree");
 let codePanel = document.querySelector(".code");
 
+
 let ajax = function (method, URL, data, callback) {
 	var ajax = new XMLHttpRequest();
 	ajax.onreadystatechange = function() {
@@ -23,7 +24,7 @@ let renderTree = function (tree) {
 	level.className = "level back"
 	level.innerText = "..";
 	level.addEventListener("click", function(event){
-        var targetElement = event.target;
+		var targetElement = event.target;
         var where = targetElement.innerText;
         ajax("GET", "http://localhost:2001/cd/<<<", null, renderTree);
     });
@@ -44,17 +45,22 @@ let renderLevel = function (levelMessage) {
 		level.className = "level file";
 	}
 	level.addEventListener("click", function(event){
-        var targetElement = event.target;
+		var targetElement = event.target;
         var where = targetElement.innerText
         if(where.split(".").length == 1){
-			level.className = "level";
-        	ajax("GET", "http://localhost:2001/cd/" + where, null, renderTree);
+			ajax("GET", "http://localhost:2001/cd/" + where, null, renderTree);
         } else {
-        	ajax("GET", "http://localhost:2001/file/" + where, null, renderDocument);
-       	}
+			ajax("GET", "http://localhost:2001/file/" + where, null, renderDocument);
+			let getSelected = document.querySelector(".selected");
+			if (getSelected){
+				getSelected.className = "level file";
+			}
+			level.className += ' selected';
+		}
     });
 	treePanel.appendChild(level);
 }
+
 
 let renderDocument = function (file) {
 	updateCode(file.content)

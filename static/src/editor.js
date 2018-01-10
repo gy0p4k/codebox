@@ -18,7 +18,7 @@ var editableCodeMirror = CodeMirror.fromTextArea(document.querySelector(".code")
 
 let resize = function () {
      // editableCodeMirror.setSize(getProperty(".code", "width"), getProperty(".top", "height"))
-     editableCodeMirror.setSize(document.width, document.height)
+     editableCodeMirror.setSize(document.width, 790)
      
 }
 

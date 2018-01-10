@@ -73,8 +73,6 @@ fieldset > div input::-webkit-input-placeholder{
     background-color: #35B16D;
 }
 
-
-
 .panel {
     background: lime;
 }
@@ -89,11 +87,25 @@ fieldset > div input::-webkit-input-placeholder{
     color: black;
 }
 
+.selected{
+    background-color: #0081D1;
+}
+
 .level:last-child{
     display: none;
 }
 
 .folder{
+    background-image: url("../../static/img/folder.png");
+    background-repeat: no-repeat;
+    background-position: left;
+    background-position-x: 5px;
+    background-size: 8%;
+    font-weight: bold;
+    padding-left: 25px;
+}
+
+.folder:active{
     background-image: url("../../static/img/folder.png");
     background-repeat: no-repeat;
     background-position: left;
@@ -137,7 +149,7 @@ fieldset > div input::-webkit-input-placeholder{
   height: 150%;
   width: 100%;
   margin: 0;
-  padding: 0;
+  padding: 0 0 200px 0;
   top: 0;
   left: 0;
   viewportMargin: Infinity;
