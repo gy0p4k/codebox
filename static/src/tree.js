@@ -24,7 +24,7 @@ let renderTree = function (tree) {
 	level.innerText = "..";
 	level.addEventListener("click", function(event){
         var targetElement = event.target;
-        var where = targetElement.innerText
+        var where = targetElement.innerText;
         ajax("GET", "http://localhost:2001/cd/<<<", null, renderTree);
     });
 	treePanel.appendChild(level)
@@ -35,12 +35,19 @@ let renderTree = function (tree) {
 
 let renderLevel = function (levelMessage) {
 	let level = document.createElement("p");
-	level.className = "level"
+	
+	console.log(levelMessage)
 	level.innerText = levelMessage;
+	if (levelMessage.split(".").length == 1){
+		level.className = "level folder";
+	} else {
+		level.className = "level file";
+	}
 	level.addEventListener("click", function(event){
         var targetElement = event.target;
         var where = targetElement.innerText
         if(where.split(".").length == 1){
+			level.className = "level";
         	ajax("GET", "http://localhost:2001/cd/" + where, null, renderTree);
         } else {
         	ajax("GET", "http://localhost:2001/file/" + where, null, renderDocument);

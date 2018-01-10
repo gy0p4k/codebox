@@ -30,7 +30,6 @@ let updateCode =function(content){
 let getProperty = function (elementQuery, property) {
     var style = window.getComputedStyle(document.querySelector(elementQuery), null);
     return style.getPropertyValue(property);
-
 }
 
 resize()

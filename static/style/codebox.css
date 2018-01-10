@@ -89,6 +89,24 @@ fieldset > div input::-webkit-input-placeholder{
     color: black;
 }
 
+.level:last-child{
+    display: none;
+}
+
+.folder{
+    background-image: url("../../static/img/folder.png");
+    background-repeat: no-repeat;
+    background-position: left;
+    background-position-x: 5px;
+    background-size: 8%;
+    font-weight: bold;
+    padding-left: 25px;
+}
+
+.file{
+    padding-left: 25px;
+}
+
 .handle {
     flex: 1 1 1%;
     background: #FD971F;
@@ -97,7 +115,7 @@ fieldset > div input::-webkit-input-placeholder{
 .tree{
     overflow-y: auto;
     background-color: #152b39;
-    width: 220px;
+    width: 270px;
     overflow-x: hidden;
 }
 
