@@ -1,17 +1,34 @@
 const express = require('express')
 const cmd = require('node-cmd')
 const shell = require('shelljs');
+const bodyParser = require('body-parser');
+const crypto = require('crypto')
 
 const app = express()
 
+
+app.use(bodyParser.json());
 app.use('/static', express.static('static'))
 
 //shell.cd("/")
 
 //app.get('/', (req, res) => res.sendFile(__dirname + '/static/index.html'))
 
+var token = crypto.randomBytes(8).toString('hex');
+console.log("Your token: " + token);
+
+
 app.get("/", function(req, res){
   res.sendFile(__dirname + '/static/login.html');
+});
+
+
+app.get("/editor/:token", function(req, res){
+  if(req.params.token == token){
+    res.sendFile(__dirname + '/static/index.html')
+  }else{
+    res.sendFile(__dirname + '/static/login.html')
+  }
 });
 
 
