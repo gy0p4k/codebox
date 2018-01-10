@@ -17,7 +17,7 @@ app.use('/static', express.static('static'))
 var token = crypto.randomBytes(8).toString('hex');
 console.log("Your token: " + token);
 
-var develop = true;
+var develop = false;
 
 app.get("/", function(req, res){
   res.sendFile(__dirname + '/static/login.html');
