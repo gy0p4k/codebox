@@ -6,10 +6,13 @@ const app = express()
 
 app.use('/static', express.static('static'))
 
-shell.cd("/")
+//shell.cd("/")
 
-app.get('/', (req, res) => res.sendFile(__dirname + '/static/index.html'))
+//app.get('/', (req, res) => res.sendFile(__dirname + '/static/index.html'))
 
+app.get("/", function(req, res){
+  res.sendFile(__dirname + '/static/login.html');
+});
 
 
 app.get('/tree', function(req, res) {
