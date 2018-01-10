@@ -1,11 +1,11 @@
 'use strict'
 
 
-let url = 'http://localhost:2001';
+let url = 'http://localhost:2001/editor/';
 
-const methods = function ( methodType, data ) {
+const methods = function ( methodType, data, callback ) {
     const xhr = new XMLHttpRequest();
-    xhr.open( methodType, url );
+    xhr.open( methodType, url + data);
     xhr.setRequestHeader('Content-Type', 'application/json');
     xhr.onreadystatechange = function() {
         if(xhr.readyState == 4) {
@@ -14,7 +14,7 @@ const methods = function ( methodType, data ) {
         };
     };
     
-    xhr.send(data);
+    xhr.send();
     console.log('request sent')
 };
 
@@ -25,5 +25,5 @@ let submitButton = document.querySelector('#submit');
 let inputField = document.querySelector('#login');
 
 function submitClick() {
-    methods('POST', inputField.value );
+    methods('GET', inputField.value, callback );
 }
