@@ -52,10 +52,16 @@ let renderLevel = function (levelMessage) {
         } else {
 			ajax("GET", "http://localhost:2001/file/" + where, null, renderDocument);
 			let getSelected = document.querySelector(".selected");
+			var getSave = document.getElementById('save');
 			if (getSelected){
 				getSelected.className = "level file";
+				getSelected.removeChild(getSave);
 			}
 			level.className += ' selected';
+			let saveButton = document.createElement('button');
+			saveButton.setAttribute("id", "save");
+			saveButton.innerHTML = "Save";
+			level.appendChild(saveButton);
 		}
     });
 	treePanel.appendChild(level);
