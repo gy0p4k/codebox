@@ -80,7 +80,8 @@ fieldset > div input::-webkit-input-placeholder{
 }
 
 .level {
-    background-color: black;
+    border-bottom: 1px dashed rgb(71, 70, 70);
+    padding: 3px 0 3px 5px;
 }
 
 .level:hover {
@@ -95,14 +96,16 @@ fieldset > div input::-webkit-input-placeholder{
 
 .tree{
     overflow-y: auto;
-    width: 200px;
+    background-color: #152b39;
+    width: 220px;
+    overflow-x: hidden;
 }
 
 .top {
     display: flex;
     flex: 1 1 87%;
     align-content: stretch;
-    overflow-y: auto;
+    overflow-y: hidden;
     background: #272822;
     /*justify-content: space-between;*/
 }
@@ -114,11 +117,12 @@ fieldset > div input::-webkit-input-placeholder{
 .CodeMirror { 
   border: 0px solid #eee;
   height: 150%;
-  width: 80%;
+  width: 100%;
   margin: 0;
   padding: 0;
   top: 0;
   left: 0;
   viewportMargin: Infinity;
+  overflow-x: hidden;
 }
 
