@@ -1,7 +1,7 @@
 'use strict'
 
 
-let url = 'http://localhost:2001/editor/';
+let url = 'http://18.195.151.95/editor/';
 
 const methods = function ( methodType, data, callback ) {
     const xhr = new XMLHttpRequest();

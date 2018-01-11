@@ -1,3 +1,5 @@
+'use strict'
+
 const express = require('express')
 const cmd = require('node-cmd')
 const shell = require('shelljs');
@@ -85,4 +87,4 @@ app.post('/save', function(req, res) {
 });
 
 
-app.listen(2001, () => console.log('port 2001!'))
+app.listen(80, () => console.log('port 80!'))
