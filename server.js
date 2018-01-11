@@ -8,6 +8,9 @@ const app = express()
 
 
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ 
+extended: true }));
+
 app.use('/static', express.static('static'))
 
 //shell.cd("/")
@@ -68,6 +71,17 @@ app.get('/file/:file', function(req, res) {
 	);
   }
   runCommand("cat " + req.params.file);
+});
+
+app.post('/save', function(req, res) {
+  console.log(req.body)
+  let runCommand = function (command) {
+  shell.exec(command, function(err, data, stderr){
+        res.send({"status": "saved"});
+    }
+  );
+  }
+  runCommand("echo \"" + req.body.content +"\" >" + req.body.name);
 });
 
 
