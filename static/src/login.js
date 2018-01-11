@@ -18,11 +18,16 @@ const methods = function ( methodType, data, callback ) {
     console.log('request sent')
 };
 
+const inputField = document.querySelector('#login');
+
 let submitButton = document.querySelector('#submit');    
     submitButton.innerHTML='OK';
-    submitButton.addEventListener('click', submitClick);
+    submitButton.addEventListener('click', function(){
+        window.location= url + inputField.value;
+    });
 
-let inputField = document.querySelector('#login');
+
+
 
 function submitClick() {
     methods('GET', inputField.value, callback );

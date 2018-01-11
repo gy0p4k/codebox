@@ -73,36 +73,82 @@ fieldset > div input::-webkit-input-placeholder{
     background-color: #35B16D;
 }
 
-
-
 .panel {
     background: lime;
 }
 
 .level {
-    background-color: black;
+    border-bottom: 1px dashed rgb(71, 70, 70);
+    padding: 3px 0 3px 5px;
+    transition: 0.3s;
 }
 
 .level:hover {
-    background-color: white;
+    background-color: #0081D1;
     color: black;
 }
+
+.selected{
+    background-color: #0081D1;
+}
+
+#save{
+    background-color: #fff;
+    border: 0px;
+    border-radius: 1px; 
+    font-family:'Lato', sans-serif;
+    padding: 0.2rem 0.4rem; 
+    margin-left: 1rem;
+    z-index: 5;
+}
+
+.level:last-child{
+    display: none;
+}
+
+.folder{
+    background-image: url("../../static/img/folder.png");
+    background-repeat: no-repeat;
+    background-position: left;
+    background-position-x: 5px;
+    background-size: 8%;
+    font-weight: bold;
+    padding-left: 25px;
+}
+
+.folder:active{
+    background-image: url("../../static/img/folder.png");
+    background-repeat: no-repeat;
+    background-position: left;
+    background-position-x: 5px;
+    background-size: 8%;
+    font-weight: bold;
+    padding-left: 25px;
+}
+
+.file{
+    padding-left: 25px;
+}
+
 
 .handle {
     flex: 1 1 1%;
     background: #FD971F;
+    cursor: pointer;
 }
 
 .tree{
     overflow-y: auto;
-    width: 200px;
+    background-color: #152b39;
+    width: 270px;
+    overflow-x: hidden;
 }
 
 .top {
     display: flex;
     flex: 1 1 87%;
     align-content: stretch;
-    overflow-y: auto;
+    overflow-y: hidden;
     background: #272822;
     /*justify-content: space-between;*/
 }
@@ -114,11 +160,13 @@ fieldset > div input::-webkit-input-placeholder{
 .CodeMirror { 
   border: 0px solid #eee;
   height: 150%;
-  width: 80%;
+  width: 100%;
   margin: 0;
-  padding: 0;
+  padding: 0 0 200px 0;
   top: 0;
   left: 0;
   viewportMargin: Infinity;
+  overflow-x: hidden;
 }
+
 

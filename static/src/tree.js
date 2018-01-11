@@ -3,6 +3,7 @@
 let treePanel = document.querySelector(".tree");
 let codePanel = document.querySelector(".code");
 
+
 let ajax = function (method, URL, data, callback) {
 	var ajax = new XMLHttpRequest();
 	ajax.onreadystatechange = function() {
@@ -23,8 +24,8 @@ let renderTree = function (tree) {
 	level.className = "level back"
 	level.innerText = "..";
 	level.addEventListener("click", function(event){
-        var targetElement = event.target;
-        var where = targetElement.innerText
+		var targetElement = event.target;
+        var where = targetElement.innerText;
         ajax("GET", "http://localhost:2001/cd/<<<", null, renderTree);
     });
 	treePanel.appendChild(level)
@@ -35,19 +36,37 @@ let renderTree = function (tree) {
 
 let renderLevel = function (levelMessage) {
 	let level = document.createElement("p");
-	level.className = "level"
+	
+	console.log(levelMessage)
 	level.innerText = levelMessage;
+	if (levelMessage.split(".").length == 1){
+		level.className = "level folder";
+	} else {
+		level.className = "level file";
+	}
 	level.addEventListener("click", function(event){
-        var targetElement = event.target;
+		var targetElement = event.target;
         var where = targetElement.innerText
         if(where.split(".").length == 1){
-        	ajax("GET", "http://localhost:2001/cd/" + where, null, renderTree);
+			ajax("GET", "http://localhost:2001/cd/" + where, null, renderTree);
         } else {
-        	ajax("GET", "http://localhost:2001/file/" + where, null, renderDocument);
-       	}
+			ajax("GET", "http://localhost:2001/file/" + where, null, renderDocument);
+			let getSelected = document.querySelector(".selected");
+			var getSave = document.getElementById('save');
+			if (getSelected){
+				getSelected.className = "level file";
+				getSelected.removeChild(getSave);
+			}
+			level.className += ' selected';
+			let saveButton = document.createElement('button');
+			saveButton.setAttribute("id", "save");
+			saveButton.innerHTML = "Save";
+			level.appendChild(saveButton);
+		}
     });
 	treePanel.appendChild(level);
 }
+
 
 let renderDocument = function (file) {
 	updateCode(file.content)
