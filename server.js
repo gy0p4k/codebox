@@ -50,6 +50,21 @@ app.get('/tree', function(req, res) {
   runCommand("ls | xargs -n 1 basename");
 });
 
+app.get('/status', function(req, res) {
+  let runCommand = function (command) {
+        shell.exec(command, function(err, data, stderr){
+                let returnList = [];
+        data.split(/\r?\n/).forEach(function (element) {
+                returnList.push(element);
+        })
+        res.send(returnList);
+    }
+        );
+}
+  runCommand("top -bcn1 -w512");
+});
+
+
 app.get('/cd/:where', function(req, res) {
   let runCommand = function (command) {
 	shell.exec(command, function(err, data, stderr){
