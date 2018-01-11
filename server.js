@@ -17,16 +17,13 @@ app.use('/static', express.static('static'))
 var token = crypto.randomBytes(8).toString('hex');
 console.log("Your token: " + token);
 
-var develop = false;
-
 app.get("/", function(req, res){
   res.sendFile(__dirname + '/static/login.html');
 });
 
 
 app.get("/editor/:token", function(req, res){
-  console.log(req.params.token, token)
-  if(req.params.token == token || develop){
+  if(req.params.token == token){
     res.sendFile(__dirname + '/static/index.html')
   }else{
     res.sendFile(__dirname + '/static/login.html')
