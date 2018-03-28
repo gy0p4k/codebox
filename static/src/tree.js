@@ -26,7 +26,7 @@ let renderTree = function (tree) {
 	level.addEventListener("click", function(event){
 		var targetElement = event.target;
         var where = targetElement.innerText;
-        ajax("GET", "http://localhost:2001/cd/<<<", null, renderTree);
+        ajax("GET", "http://18.195.151.95/cd/<<<", null, renderTree);
     });
 	treePanel.appendChild(level)
 	tree.forEach( function(element, index) {
@@ -48,9 +48,9 @@ let renderLevel = function (levelMessage) {
 		var targetElement = event.target;
         var where = targetElement.innerText
         if(where.split(".").length == 1){
-			ajax("GET", "http://localhost:2001/cd/" + where, null, renderTree);
+			ajax("GET", "http://18.195.151.95/cd/" + where, null, renderTree);
         } else {
-			ajax("GET", "http://localhost:2001/file/" + where, null, renderDocument);
+			ajax("GET", "http://18.195.151.95/file/" + where, null, renderDocument);
 			let getSelected = document.querySelector(".selected");
 			var getSave = document.getElementById('save');
 			if (getSelected){
@@ -73,4 +73,4 @@ let renderDocument = function (file) {
 }
 
 
-ajax("GET", "http://localhost:2001/tree", null, renderTree)
+ajax("GET", "http://18.195.151.95/tree", null, renderTree)
