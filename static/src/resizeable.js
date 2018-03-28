@@ -11,7 +11,6 @@ function initialiseResize(e) {
 function startResizing(e) {
     let mouseY = (e.clientY - top.offsetBottom) + 'px';
     top.setAttribute("style", mouseY);
-    //top.style.height = (e.clientY - top.offsetLeft) + 'px';
     console.log(e.clientY)
     terminal.style.height = (e.clientY - terminal.offsetTop) + 'px';
 }

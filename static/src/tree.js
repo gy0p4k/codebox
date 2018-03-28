@@ -26,7 +26,7 @@ let renderTree = function (tree) {
 	level.addEventListener("click", function(event){
 		var targetElement = event.target;
         var where = targetElement.innerText;
-        ajax("GET", "http://18.195.151.95/cd/<<<", null, renderTree);
+        ajax("GET", "/cd/<<<", null, renderTree);
     });
 	treePanel.appendChild(level)
 	tree.forEach( function(element, index) {

@@ -9,11 +9,6 @@ drag.addEventListener('click', function(e){
     dragStart.y = e.clientY;
 })
 
-// document.addEventListener('mouseup', function(e){
-//     isDragging = false;
-//     dragStart.y = e.clientY;
-// })
-
 document.addEventListener('mousemove', function(e){
     if( isDragging ) {
         let topPercent = e.clientY / window.innerHeight * 100;
