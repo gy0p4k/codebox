@@ -15,10 +15,6 @@ extended: true }));
 
 app.use('/static', express.static('static'))
 
-//shell.cd("/")
-
-//app.get('/', (req, res) => res.sendFile(__dirname + '/static/index.html'))
-
 var token = crypto.randomBytes(8).toString('hex');
 console.log("Your token: " + token);
 
