@@ -6,13 +6,13 @@ const shell = require('shelljs');
 const bodyParser = require('body-parser');
 const crypto = require('crypto')
 const app = express()
+const token = crypto.randomBytes(8).toString('hex');
+console.log("Your token: " + token);
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded( { extended: true } ));
 app.use('/static', express.static('static'));
 
-const token = crypto.randomBytes(8).toString('hex');
-console.log("Your token: " + token);
 
 app.get("/", function(req, res){
   res.sendFile(__dirname + '/static/login.html');
