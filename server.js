@@ -5,17 +5,13 @@ const cmd = require('node-cmd')
 const shell = require('shelljs');
 const bodyParser = require('body-parser');
 const crypto = require('crypto')
-
 const app = express()
 
-
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ 
-extended: true }));
+app.use(bodyParser.urlencoded( { extended: true } ));
+app.use('/static', express.static('static'));
 
-app.use('/static', express.static('static'))
-
-var token = crypto.randomBytes(8).toString('hex');
+const token = crypto.randomBytes(8).toString('hex');
 console.log("Your token: " + token);
 
 app.get("/", function(req, res){
