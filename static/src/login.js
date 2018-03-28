@@ -17,4 +17,3 @@ submitButton.addEventListener('click', redirect);
 function submitClick() {
     methods('GET', inputField.value, callback );
 }
-
