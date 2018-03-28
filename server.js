@@ -49,7 +49,7 @@ app.get('/status', function(req, res) {
     }
         );
 }
-  runCommand("top -bcn1 -w512");
+  runCommand("top -bcn1 -w512 | head -5");
 });
 
 
