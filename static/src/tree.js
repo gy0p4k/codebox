@@ -48,9 +48,9 @@ let renderLevel = function (levelMessage) {
 		var targetElement = event.target;
         var where = targetElement.innerText
         if(where.split(".").length == 1){
-			ajax("GET", "http://18.195.151.95/cd/" + where, null, renderTree);
+			ajax("GET", "/cd/" + where, null, renderTree);
         } else {
-			ajax("GET", "http://18.195.151.95/file/" + where, null, renderDocument);
+			ajax("GET", "/file/" + where, null, renderDocument);
 			let getSelected = document.querySelector(".selected");
 			var getSave = document.getElementById('save');
 			if (getSelected){
@@ -73,4 +73,4 @@ let renderDocument = function (file) {
 }
 
 
-ajax("GET", "http://18.195.151.95/tree", null, renderTree)
+ajax("GET", "/tree", null, renderTree)

@@ -1,7 +1,7 @@
 'use strict'
 
 
-let url = 'http://18.195.151.95/editor/';
+let url = '/editor/';
 
 
 const inputField = document.querySelector('#login');

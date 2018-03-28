@@ -20,11 +20,7 @@ app.get("/", function(req, res){
 
 
 app.get("/editor/:token", function(req, res){
-  if(req.params.token == token){
-    res.sendFile(__dirname + '/static/index.html')
-  }else{
-    res.sendFile(__dirname + '/static/login.html')
-  }
+  res.sendFile(__dirname + (req.params.token == token ? '/static/index.html' :  '/static/login.html' ))
 });
 
 
@@ -94,4 +90,4 @@ app.post('/save', function(req, res) {
 });
 
 
-app.listen(80, () => console.log('port 80!'))
+app.listen(8080, () => console.log('port 80!'))
