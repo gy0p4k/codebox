@@ -3,32 +3,18 @@
 
 let url = 'http://18.195.151.95/editor/';
 
-const methods = function ( methodType, data, callback ) {
-    const xhr = new XMLHttpRequest();
-    xhr.open( methodType, url + data);
-    xhr.setRequestHeader('Content-Type', 'application/json');
-    xhr.onreadystatechange = function() {
-        if(xhr.readyState == 4) {
-            console.log({ 'resp' : xhr.responseText});
-            callback(JSON.parse(xhr.responseText));
-        };
-    };
-    
-    xhr.send();
-    console.log('request sent')
-};
 
 const inputField = document.querySelector('#login');
+const redirect = function () {
+    window.location.href = url + inputField.value;
+}
+
 
 let submitButton = document.querySelector('#submit');    
-    submitButton.innerHTML='OK';
-    submitButton.addEventListener('click', function(){
-        window.location= url + inputField.value;
-    });
-
-
-
+submitButton.innerHTML='OK';
+submitButton.addEventListener('click', redirect);
 
 function submitClick() {
     methods('GET', inputField.value, callback );
 }
+
