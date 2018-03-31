@@ -6,7 +6,7 @@ const shell = require('shelljs');
 const bodyParser = require('body-parser');
 const crypto = require('crypto')
 const app = express()
-const token = crypto.randomBytes(8).toString('hex');
+const token = "alma" || crypto.randomBytes(8).toString('hex');
 console.log("Your token: " + token);
 
 app.use(bodyParser.json());
